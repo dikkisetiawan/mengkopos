@@ -3,6 +3,7 @@ import 'package:mengkopos/ui/widgets/search_field.dart';
 
 import '../theme.dart';
 import '../widgets/app_bar_widget.dart';
+import '../widgets/kcontainer_widget.dart';
 import '../widgets/side_menu.dart';
 
 class PresensiScreen extends StatelessWidget {
@@ -33,7 +34,7 @@ class PresensiScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [FirstRowWidget(), secondRowWidget()],
+              children: [FirstRowWidget(), FirstRowWidget()],
             ),
           ),
         ),
@@ -45,37 +46,67 @@ class PresensiScreen extends StatelessWidget {
 }
 
 class FirstRowWidget extends StatelessWidget {
-  FirstRowWidget({
+  const FirstRowWidget({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView(padding: const EdgeInsets.all(defaultMargin), children: [
-        Center(
-          child: Text(
-            'Senin, 27 Maret 2022',
-            style: titleTextStyle,
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+      child: ListView(
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: defaultMargin),
           children: [
-            statWidget(title: 'Absen Masuk'),
-            statWidget(title: 'Absen Pulang')
-          ],
-        ),
-        Text(
-          'Pilih Karyawan',
-          style: titleTextStyle,
-        ),
-        const SizedBox(
-          height: defaultMargin,
-        ),
-        const SearchField()
-      ]),
+            Center(
+              child: Text(
+                'Senin, 27 Maret 2022',
+                style: titleTextStyle,
+              ),
+            ),
+            Row(
+              children: [
+                statWidget(title: 'Absen Masuk'),
+                statWidget(title: 'Absen Pulang')
+              ],
+            ),
+            Text(
+              'Pilih Karyawan',
+              style: titleTextStyle,
+            ),
+            const SizedBox(
+              height: defaultMargin,
+            ),
+            const SearchField(),
+            karyawanListWidget(),
+            karyawanListWidget(),
+            karyawanListWidget(),
+            karyawanListWidget(),
+            karyawanListWidget()
+          ]),
     );
+  }
+
+  Widget karyawanListWidget() {
+    return KcontainerWidget(
+        child: ListTile(
+      onTap: () {},
+      shape: RoundedRectangleBorder(
+        borderRadius: kBorderRadius,
+      ),
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'John Doe',
+            style: subTitleTextStyle,
+          ),
+          Text(
+            'Kasir',
+            style: greyTextStyle,
+          ),
+        ],
+      ),
+    ));
   }
 
   Expanded statWidget({required String title}) {
@@ -87,7 +118,7 @@ class FirstRowWidget extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: kBorderRadius,
             border: Border.all(
-              color: Colors.grey.shade300,
+              color: lineColor,
               width: 1,
             )),
         child: Column(

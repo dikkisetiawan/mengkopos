@@ -18,10 +18,17 @@ Color kInfoColor = const Color(0xff60B2F0);
 //Gray Color Set
 Color kBackgroundColor = const Color(0xFFF8F8F8);
 Color kGreyColor = const Color(0xFF9095A1);
+Color lineColor = Colors.grey.shade300;
 Color kWhiteColor = const Color(0xFFFFFFFF);
 
 TextStyle titleTextStyle = GoogleFonts.manrope(
     color: kSecondaryColor, fontSize: 16, fontWeight: FontWeight.bold);
+
+TextStyle subTitleTextStyle = GoogleFonts.manrope(
+  color: kSecondaryColor,
+  fontWeight: FontWeight.bold,
+  fontSize: 14,
+);
 
 TextStyle whiteTextStyle = GoogleFonts.manrope(
   color: kWhiteColor,
@@ -29,6 +36,7 @@ TextStyle whiteTextStyle = GoogleFonts.manrope(
 
 TextStyle greyTextStyle = GoogleFonts.manrope(
   color: kGreyColor,
+  fontSize: 12,
 );
 
 FontWeight light = FontWeight.w300;
@@ -39,9 +47,9 @@ FontWeight bold = FontWeight.w700;
 FontWeight extraBold = FontWeight.w800;
 FontWeight black = FontWeight.w900;
 
-const defaultCircular = 20.0;
+const defaultCircular = 10.0;
 const defaultMargin = 20.0;
-BorderRadiusGeometry kBorderRadius = BorderRadius.circular(10.0);
+BorderRadiusGeometry kBorderRadius = BorderRadius.circular(defaultCircular);
 BoxShadow kShadow = BoxShadow(
     blurRadius: 20.0,
     color: Colors.black.withOpacity(0.2),

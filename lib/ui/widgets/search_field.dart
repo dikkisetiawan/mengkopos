@@ -17,16 +17,16 @@ class SearchField extends StatelessWidget {
           color: kPrimaryColor,
         ),
         filled: true,
-        fillColor: kGreyColor,
+        fillColor: kWhiteColor,
         contentPadding: const EdgeInsets.symmetric(horizontal: 20),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(defaultCircular),
-            borderSide: BorderSide(color: kWhiteColor)),
+            borderSide: BorderSide(color: lineColor, width: 1)),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(defaultCircular),
-            borderSide: BorderSide(color: kWhiteColor)),
-        hintText: 'Search',
-        hintStyle: greyTextStyle,
+            borderSide: BorderSide(color: lineColor, width: 1)),
+        hintText: 'Pilih atau Cari Karyawan',
+        hintStyle: subTitleTextStyle,
       ),
     );
   }
