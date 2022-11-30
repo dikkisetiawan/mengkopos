@@ -32,6 +32,7 @@ TextStyle subTitleTextStyle = GoogleFonts.manrope(
 
 TextStyle whiteTextStyle = GoogleFonts.manrope(
   color: kWhiteColor,
+  fontWeight: FontWeight.bold,
 );
 
 TextStyle greyTextStyle = GoogleFonts.manrope(

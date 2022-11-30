@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../responsiveness.dart';
 import '../theme.dart';
 
 class kAppBarWidget extends StatelessWidget {
@@ -9,21 +10,30 @@ class kAppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return appBarWidget();
+    return appBarWidget(context);
   }
 
-  AppBar appBarWidget() {
+  AppBar appBarWidget(BuildContext context) {
     return AppBar(
       backgroundColor: kPrimaryColor,
       leadingWidth: 150,
-      leading: Padding(
-        padding: const EdgeInsets.only(left: defaultMargin / 2),
-        child: Image.asset(
-          'assets/logo.png',
-        ),
-      ),
+      leading: Responsiveness.isMobile(context)
+          ? null
+          : Padding(
+              padding: const EdgeInsets.only(left: defaultMargin / 2),
+              child: Image.asset(
+                'assets/logo.png',
+              ),
+            ),
       toolbarHeight: 50,
-      actions: profileButtonWidget,
+      centerTitle: true,
+      title: Responsiveness.isMobile(context)
+          ? Image.asset(
+              'assets/logo.png',
+              width: 100,
+            )
+          : null,
+      actions: Responsiveness.isMobile(context) ? null : profileButtonWidget,
     );
   }
 

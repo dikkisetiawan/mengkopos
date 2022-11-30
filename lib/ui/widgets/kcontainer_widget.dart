@@ -3,17 +3,21 @@ import 'package:flutter/material.dart';
 import '../theme.dart';
 
 class KcontainerWidget extends StatelessWidget {
-  Widget child;
+  final Widget child;
+  final double? width;
+  final double? height;
+  final EdgeInsetsGeometry? margin;
 
-  KcontainerWidget({
-    Key? key,
-    required this.child,
-  }) : super(key: key);
+  KcontainerWidget(
+      {Key? key, this.margin, required this.child, this.width, this.height})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: defaultMargin),
+      width: width,
+      height: height,
+      margin: margin,
       decoration: BoxDecoration(
           borderRadius: kBorderRadius,
           border: Border.all(
